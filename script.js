@@ -4,7 +4,7 @@ let currentGuess = 1;
 let masterguessedcorrect = false
 let rightGuessString = "You got it";
 let rulesText = "5 words, ";
-let masterSentence = "cats in flying car"
+let masterSentence = "cat in flying car"
 console.log(rightGuessString);
 
 
