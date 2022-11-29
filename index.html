@@ -1,1 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SearchFinder</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
 
+
+</head>
+<body>
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="script.js" type="module"></script>
+    <script>
+        (function() {
+         var start = new Date;
+         start.setHours(23, 59, 59); // 11:59pm
+        
+         function pad(num) {
+           return ("0" + parseInt(num)).substr(-2);
+         }
+     
+         function tick() {
+           var now = new Date;
+           if (now > start) { // too late, go to tomorrow
+             start.setDate(start.getDate() + 1);
+           }
+           var remain = ((start - now) / 1000);
+           var hh = pad((remain / 60 / 60) % 60);
+           var mm = pad((remain / 60) % 60);
+           var ss = pad(remain % 60);
+           document.getElementById('time').innerHTML =
+             hh + ":" + mm + ":" + ss;
+           setTimeout(tick, 1000);
+         }
+     
+        document.addEventListener('DOMContentLoaded', tick);
+        })();
+    </script>
+    <script>
+        function myFunction() {
+           var element = document.body;
+           element.classList.toggle("dark-mode");
+        }
+    </script>
+    
+
+
+    
+    <div class="page-body" id="to_save">
+        <div style="padding-bottom: 50px;">
+            <nav class="navbar">
+                <div class="navbar-container container">
+                    <input type="checkbox" name="" id="">
+                    <div class="hamburger-lines">
+                        <span class="line line1"></span>
+                        <span class="line line2"></span>
+                        <span class="line line3"></span>
+                    </div>
+                    <ul class="menu-items">
+                      <li> <a href="/">Home</a> </li>
+                      <li> <a href="#about">About</a> </li>
+                      <li> <button class="thema" onclick="myFunction()">Switch Thema</button> </li>
+                    </ul>
+                  <a href="/" class="logo">
+                    <!-- <img src="logo.png" class="logo"/>   -->
+                    SearchFinder
+                </a>
+                </div>
+            </nav>
+        </div>
+        
+        <p class="mg_auto">  <span id='time'></span> Time to next game! </p>
+        
+        <!-- Create a centered photo grid with 4 pictures -->
+        <div class="row">
+        <div class="column">
+            <div class="image"><img src="/images/n1.png"></div>
+            <div class="image"><img src="/images/n2.png"></div>
+        </div>
+        <div class="column">
+            <div class="image"><img src="/images/n3.png"></div>
+            <div class="image"><img src="/images/n4.png"></div>
+        </div>
+        </div>
+
+        <div id="rules" style="font-size: calc(2vw + 2vh);"></div>
+
+
+        <div class="inputdiv">
+            <!--Add a textbox with here for the user to input a long sentence-->
+            <input type="text" class="inputbox" id="input" placeholder="Guess the prompt">
+            <!--Add a button that says Enter and when clicked, it will call the function checkinputsentence--> 
+            <button class="btn">Enter</button>
+            
+        <!-- Add div element for text with a black border-->
+        </div>
+        <div class="share" id="share">
+            <button class="btn sharebtn" id="download"><b>SHARE</b></button>
+            <div id="output"></div>
+        </div>
+        <!-- <div id="output"></div> -->
+
+        <div class="line">
+            <div id="line1" class="lines"></div>
+            <div id="line2" class="lines"></div>
+            <div id="line3" class="lines"></div>
+            <div id="line4" class="lines"></div>
+            <div id="line5" class="lines"></div>
+        </div>
+
+
+        <div id="game-board">
+
+        </div>
+    </div>
+
+    <script>
+        $( "#download" ).on( "click", function() {
+          html2canvas(document.querySelector("#to_save")).then(canvas => {
+            canvas.toBlob(function(blob) {
+              window.saveAs(blob, getFormattedTime());
+              function getFormattedTime() {
+                    var today = new Date();
+                    var y = today.getFullYear();
+                    // JavaScript months are 0-based.
+                    var m = today.getMonth() + 1;
+                    var d = today.getDate();
+                    return y + "-" + m + "-" + d;
+              }
+            });
+            });
+        });
+      </script>
+</body>
+</html>
