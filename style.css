@@ -191,6 +191,7 @@ body {
   margin-bottom: 0.5rem;
   text-decoration: none;
   color: #fff;
+  cursor: pointer;
   /* display: contents; */
 }
 
