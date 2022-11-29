@@ -345,3 +345,22 @@ body {
     height: 50vmax;
   }
 }
+
+.aboutme {
+  border: solid 2px #117964;
+  max-height: 200px;
+  display: table;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 10px; margin: 10px;
+}
+.aboutme p {
+  font-size: 18px;
+}
+.aboutme h3 {
+  font-size: 24px;
+}
+.aboutme a {
+  font-size: 20px;
+}
