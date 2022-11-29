@@ -5,7 +5,7 @@ let masterguessedcorrect = false
 let rightGuessString = "You got it";
 let rulesText = "5 words, ";
 let masterSentence = "cat in flying car"
-console.log(rightGuessString);
+//console.log(rightGuessString);
 
 
 //get the input from the textbox and compare it to the master sentence
