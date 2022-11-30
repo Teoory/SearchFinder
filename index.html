@@ -69,6 +69,7 @@
                     </div>
                     <ul class="menu-items">
                       <li> <a onClick="window.location.reload()" style="cursor: pointer;">Home</a> </li>
+                      <li> <a id="WGameFunction" style="cursor: pointer;">What's Game</a> </li>
                       <li> <a id="AboutFunction" style="cursor: pointer;">About</a> </li>
                       <li> <button class="thema" onclick="myFunction()">Switch Thema</button> </li>
                     </ul>
@@ -82,6 +83,16 @@
         
         <p class="mg_auto">  <span id='time'></span> Time to next game! </p>
 
+        <div id="WhatsGame" style="display:none;" class="WhatsGame">
+            <div class="aboutme">
+                <h3>What's game?</h3>
+                <p style="color:red;">find the 4-word phrase that allows the pictures to be created.</p>
+                <p>if the written word is <a style="color:green">Green:</a> The right word is in the right place</p>
+                <p>if the written word is <a style="color:darkgoldenrod">Yellow:</a> The correct word is in the wrong place.</p>
+                <p>if the written word is <a style="color:grey">Grey:</a> The wrong word is in the wrong place.</p>
+                <a href="mailto:berkay.koksall54@gmail.com" style="color: goldenrod;">Contact Me!</a>
+            </div>
+        </div>
         <div id="About" style="display:none;">
             <div class="aboutme">
                 <h3>Hello There I'm Berkay ^Teory^ Koksal.</h3>
@@ -112,6 +123,7 @@
         </div>
 
         <div id="rules" style="font-size: calc(2vw + 2vh);"></div>
+        <p>find the 4-word phrase that allows the pictures to be created.</p>
 
 
         <div class="inputdiv">
@@ -146,6 +158,11 @@
         $('#AboutFunction').click(function() {
           $('#About').toggle('fast', function() {
           });
+        });
+
+        $('#WGameFunction').click(function() {
+            $('#WhatsGame').toggle('fast', function() {
+            });
         });
     </script>
 

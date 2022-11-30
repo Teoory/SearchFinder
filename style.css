@@ -129,6 +129,10 @@ body {
     vertical-align: middle;
 }
 
+.WhatsGame {
+  display: grid;
+}
+
 
 
 
